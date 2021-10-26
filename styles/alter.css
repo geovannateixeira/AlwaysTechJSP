@@ -1,0 +1,64 @@
+*{
+    font-family: calibri;
+    text-align: center;
+}
+
+section{
+    width: 80%;
+    height: 450px;
+    margin: auto;
+    margin-top: 3%;
+}
+
+.cad{
+    width:700px;
+    height:450px;
+    color: black;
+    margin: auto;
+    box-shadow: 3px 2px 2px 3px  #DC143C;
+    border-radius: 5%;
+}
+
+h2{
+    line-height: 80px;
+    text-align: center;
+}
+
+#form1{
+    font-size: 16px;
+}
+
+.frm{
+    font-size: 18px;
+    padding-left: 40pt;
+    margin-left: 150px;
+}
+
+input{
+    height: 30px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+input[type="submit"]{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 20px ;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color:#FFFFFF;
+    background-color: crimson;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+    background-color: #1B223C;
+    transition: .5s;
+}

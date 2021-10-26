@@ -1,0 +1,263 @@
+@font-face {
+    font-family: Brush;
+    src: url(../fonts/RegularBrush.otf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    font-family: Calibri;;
+    color: black;
+    background-color: #f3f3f3;
+}
+header{
+    width: 100%;
+    height: 80px;
+    box-shadow: 0px 2px 3px 4px #000000;
+    background-color: crimson;
+}
+a{
+    text-decoration: none
+}
+
+#mobile-header_content {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+#desktop-header_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+/* nav content */
+.nav_box {
+    width: 33%;
+    margin: 0 0.25% 0 0.25%;
+    height: 100%;
+}
+.nav_box a{
+    color: white;
+}
+
+#sub-menu_content  {
+    display: flex;
+}
+#sub-menu {
+    font-family: Calibri;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid white;
+    margin: auto;
+}
+#sub-menu:hover {
+    transition: 1s;
+    background-color: crimson;
+}
+#sub-menu a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#sub-menu:hover > #sub-menu_options {
+    transition: 1s;
+    height: fit-content;
+    opacity: 1;
+    margin-top: 1px;
+    background-color: crimson;
+    border: 1px solid white;
+    position: relative;
+    z-index: 0;
+}
+#sub-menu_options {
+    width: 101%;
+    height: 0;
+    opacity: 0;
+    margin-left: -1px;
+}
+#sub-menu_options a:hover {
+    background-color: #3d0d16;
+}
+
+/* nav title content */
+#tittle_content, #mb-tittle_content {
+    line-height: 80px;
+}
+#tittle_content a, #mb-tittle_content a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-family: Arial;
+    font-size: 20pt;
+    text-align: center;
+}
+#title_content a {
+    width: 100%;
+    height: 100%;
+}
+#title_content h1 {
+    font-family: Brush;
+    font-size: 35pt;
+    line-height: 80px;
+    text-align: center;
+}
+
+/* nav img content */
+#img_box {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    margin: auto;
+}
+.img_box {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+.img_box img {
+    vertical-align: middle;
+    background-color: white;
+    border-radius: 50px;
+    padding: 5px;
+    width: 40px;
+    height: 40px; 
+    margin:auto;
+}
+.img_box img:hover {
+    background-color: #919191;
+}
+
+footer{
+    box-sizing: border-box;
+    width: 100%;
+    height: 80px;
+    margin-top: 20px;
+    border:#5BC0BE solid 2px;
+    display: inline-block;
+    vertical-align: middle;
+}
+  
+footer p{
+    margin: 0;
+    line-height: 75px;
+    text-align: center;
+    color:#FFFFFF;
+}
+
+label[for="btn_menu"]{
+    padding: 5px;
+    text-align: center;
+    font-size: 45px;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    margin-left: 5px;
+}
+
+#btn_menu{
+    display: none;
+}
+
+label[for="btn_menu"]{
+    display: none;
+}
+
+@media screen and (min-width: 320px) and (max-width: 750px){
+
+    #desktop-header_content {
+        display: none;
+    }
+    #mobile-header_content {
+        display: flex;
+    }
+
+    #mb-menu_content {
+        width: 20%;
+        height: 100%;
+    }
+    #mb-tittle_content {
+        width: 80%;
+        height: 100%;
+    }
+    #mb-title_content {
+        width: 80%;
+        height: 100%;
+    }
+    #mb-title_content a {
+        width: 100%;
+        height: 100%;
+    }
+    #mb-title_content h1 {
+        font-family: Brush;
+        font-size: 35pt;
+        line-height: 80px;
+        text-align: center;
+    }
+    
+    #menu_icon {
+        width: 75px;
+        color: white;
+        margin: auto;
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 80px;
+    }
+
+    label[for="btn_menu"]{
+        display: block;
+        width: 20%;
+    }
+
+    #btn_menu:checked ~ .menu{
+        margin-left: 0;
+    }
+    .menu{
+        position: absolute;
+        z-index: 10;
+        margin-left: -200px;
+        transition: .4s;
+        width: 200px;
+        height: fit-content;
+        background-color: black;
+        display: block;
+        background-color: crimson;
+        border: 5px solid black;
+    }
+    
+    .lists a {
+        margin: 0;
+        color: white;
+    }
+    .lists img {
+        vertical-align: middle;
+        background-color: white;
+        border-radius: 50px;
+        padding: 5px;
+        width: 40px;
+        height: 40px; 
+        margin:auto;
+    }
+    
+    nav .lists{
+        display: block;
+        margin: 0;
+    }
+
+    nav ul li{
+        line-height: 45px;
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+
+}

@@ -1,0 +1,171 @@
+article {
+    margin-top: 100px;
+    width: 100%;
+}
+#produto_content {
+    margin: auto;
+    width: 70%;
+    display: flex;
+    box-shadow: 3px 2px 2px 3px crimson;
+}
+
+#heart {
+    margin: 20px;
+    display: flex;
+    position: absolute;
+    cursor: pointer;
+}
+
+#produto_img {
+    width: 60%;
+    padding-bottom: 20px;
+    background-color: white;
+      box-shadow: 3px 2px 2px 3px crimson;
+}
+#img_selected {
+    margin: auto;
+    width: 50%;
+}
+#img_selected img{
+    width: 100%;
+}
+#imgs_selection {
+    width: 100%;
+    display: inline;
+    margin-left: 40px;
+}
+#imgs_selection img{
+    border: 1px solid #0B132B;
+    margin: auto;
+    width: 20%;
+    height: 110px;
+}
+#imgs_selection img:hover {
+    cursor: pointer;
+}
+
+#produto_details {
+    background-color: white;
+    color: #0B132B;
+    width: 40%;
+    padding: 1.25%;
+    box-shadow: 3px 2px 2px 3px crimson;;
+}
+#desc_title {
+    margin-top: 20px;
+}
+
+#produto_compra {
+    background-color: white;
+    color: #0B132B;
+    box-shadow: 3px 2px 2px 3px crimson;
+    width: 25%;
+}
+#valor_content {
+    margin: auto;
+    width: 90%;
+    height: 80%;
+    padding: 5% 0; 
+}
+#produto_valor {
+    margin-bottom: 0;
+    font-size: 20pt;
+}
+#produto_parcelamento {
+    margin-top: 5px;
+}
+#button_content {
+    display: flex;
+    margin: auto;
+    width: 90%;
+    height: 20%;
+}
+#comprar {
+    margin: auto;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc143c;
+    color: white;
+    font-size: larger;
+}
+#comprar:hover {
+    cursor: pointer;
+    background-color: royalblue;
+}
+
+
+#ficha_tecnica {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: auto;
+    width: 70%;
+}
+table {
+    width: 100%;
+}
+tr {
+    width: 100%;
+}
+td {
+    padding: 0 10px;
+}
+
+tr:nth-child(odd) {
+    background-color: crimson;
+    color: white;
+}
+td:nth-child(odd) {
+    width: 30%;
+}
+tr:nth-child(even) {
+    background-color: rgb(114, 114, 114);
+    color: white;
+}
+
+
+input[type="submit"]{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px ;
+    margin-left: 30px;
+    margin-top: 20px;
+    color:#FFFFFF;
+    background-color: crimson;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+    background-color: #1B223C;
+    transition: .5s;
+}
+
+@media screen and (min-width: 320px) and (max-width: 800px){
+    #produto_content {
+        width: 98%;
+        display: block;
+    }
+    #produto_compra, #produto_details, #produto_img {
+        width: 100%;
+        margin: auto;
+    }
+    #produto_compra {
+        padding-bottom: 20px;
+    }
+    #ficha_tecnica {
+        width: 98%;
+    }
+}
+@media screen and (min-width: 801px) and (max-width: 1200px){
+    #produto_content {
+        width: 98%;
+    }
+    #ficha_tecnica {
+        width: 98%;
+    }
+}

@@ -1,0 +1,46 @@
+section{
+    margin: 100px auto 0 auto;
+    width: 60%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.funcao{
+    width: 200px;
+    height: 230px;
+    margin: 25px;
+    background-color: #FFFFFF;
+    box-shadow: 2px 2px 2px #DC143C;
+    border-radius: 3%;
+}
+
+.funcao img{
+    width:200px;
+    height: 180px;
+    border-radius: 6%;
+}
+
+
+.text{
+    width: 100%;
+    height: 50px;
+    float: left;
+    background-color: #DC143C;
+    border-radius: 6%;
+}
+  
+a {
+    color: black;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+  
+.txtfunc {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 13px;
+    line-height: 50px;
+}

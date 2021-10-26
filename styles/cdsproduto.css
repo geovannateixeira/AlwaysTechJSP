@@ -1,0 +1,122 @@
+section{
+    width: 600px;
+    height: 480px;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: 1px 2px 3px 2px #DC143C;
+    border-radius: 5%;
+}
+
+h1{
+    text-align: center;
+    line-height: 50px;
+}
+
+#formulario{
+    margin-top: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+input{
+    height: 30px;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
+.box-left{
+    width: 340px;
+    margin-left: 50px;
+}
+
+
+.alinhar{
+    display: flex;
+    justify-content:space-between;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.box-right{
+    width:550px;
+    
+}
+
+.alinhar2{
+    display: flex;
+    width: 230px;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.botoes{
+    margin-top: 20px;
+}
+
+
+input[type="submit"], input[type="button"]{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    width: 120px;
+    height: 50px;
+    border-radius: 20px ;
+    margin-left: 80px;
+    margin-bottom: 20px;
+    padding: 5px;
+    margin-top: 50px;
+    color:#FFFFFF;
+    background-color: crimson;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover{
+    background-color: #1B223C;
+    transition: .5s;
+}
+
+@media screen and (min-width: 320px) and (max-width: 640px){
+    header{
+      width: 100%;
+    }
+
+    section{
+      width: 92%;
+      height: 865px;
+      margin-left: 18px;
+      margin-top: -211px;
+    }
+
+    
+.lg img{
+    width: 200px;
+    height: 200px;
+    display: none;
+}
+
+    footer{
+      font-size: 6pt;
+      width: 100%;
+  }
+
+  #btn{
+    width: 120px;
+    height: 40px;
+    float: left;
+    margin-left: 60px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+}

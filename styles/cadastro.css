@@ -1,0 +1,129 @@
+section{
+    width: 600px;
+    height: 600px;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: 2px 1px 1px 2px #DC143C;
+    border-radius: 5%;
+}
+
+.ttl{
+    text-align: center;
+    line-height: 50px;
+}
+
+
+.box-left{
+    width: 340px;
+}
+
+.alinhar{
+    display: flex;
+    justify-content:space-between;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.alinharcep{
+    display: flex;
+    justify-content:space-between;
+    width: 300px;
+    margin-bottom: 0px;
+}
+
+.box-right{
+    width:250px;
+}
+
+.alinhar2{
+    display: flex;
+    width: 230px;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+
+.botoes{
+    margin-top: 20px;
+}
+
+
+.frm{
+    font-size: 16px;
+}
+
+.lg img{
+    width: 200px;
+    height: 200px;
+    float: right;
+    margin-bottom: 50px;
+}
+
+#formulario{
+    margin-top: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+input{
+    height: 30px;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
+.btnc {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 10px;
+    border: none;
+    width: 100px;
+    height: 20px;
+    border-radius: 5px ;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-left: 200px;
+    padding: 5px;
+    color:#FFFFFF;
+    background-color: crimson;
+    cursor: pointer;
+}
+
+input[type="submit"],input[type="button"]{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    width: 120px;
+    height: 50px;
+    border-radius: 20px ;
+    margin-left: 80px;
+    margin-bottom: 20px;
+    padding: 5px;
+    margin-top: 0px;
+    color:#FFFFFF;
+    background-color: crimson;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover, .btnc:hover{
+    background-color: #1B223C;
+    transition: .5s;
+}
+
+
+
+
+
+
