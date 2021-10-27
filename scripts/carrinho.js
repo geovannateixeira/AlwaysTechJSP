@@ -45,16 +45,16 @@ function produtos_selecionados() {
 function valor_total() {
     let soma = 0;
     for(let i = 0; i < tagPreco.length; i++) {
-        soma = soma + parseInt(tagPreco[i].innerText) * parseInt(tagQtd[i].innerText);
+        soma = soma + parseInt(tagPreco[i].innerText.substring(2)) * parseInt(tagQtd[i].innerText);
     }
 
-    document.getElementById("total_value").innerHTML = "Total: " + soma;
+    document.getElementById("total_value").innerText = "Total: R$ " + soma.toLocaleString('pt-br', {minimumFractionDigits: 2});
 }
 
 document.getElementById("btn_prosseguir").onclick = function() {
 
-    let total = parseDouble(document.getElementById("total_value"));
-    let qtd = parseInt(document.getElementById("quant_prod"));
+    let total = document.getElementById("total_value").innerText.substring(10);
+    let qtd = parseInt(document.getElementById("quant_prod").innerText);
 
     window.location = "compras.jsp?total="+total+"&produto="+qtd;
 }

@@ -52,27 +52,24 @@
                     <p class="qtd">1</p>
                     <button class="mais">+</button>
                 </div>
-                <p class="preco"> R$ <%= rs.getDouble(3)%> </p>
+                <p class="preco"> R$ <%=rs.getDouble(3)%> </p>
             </div>
-            
-              
-            <hr>
-           
-        </section>
-        <section class="result_container">
-            <div class="result">
-            
-                
-                
-                <p id="total_value" class="total">R$ <%= rs.getDouble(3)%></p>
-              <%       }
+               <%       }
                             
                                 }catch(SQLException ex) {
                                     out.print(ex.getMessage());
                                 }
                            
                    %>
-            
+            <hr>
+           
+        </section>
+        <section class="result_container">
+            <div class="result">
+          
+               
+                 <p id="total_value" class="total">Total: R$ 3.900,00</p>
+          
                 <p class="parce">em até 12x sem juros</p>
                 <p id="quant_prod" class="quant_txt">3 produtos selecionados</p>
             </div>

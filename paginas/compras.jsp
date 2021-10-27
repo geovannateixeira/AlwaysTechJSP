@@ -113,7 +113,7 @@
             session.setAttribute("valorProdutos", request.getParameter("valorProdutos"));
             session.setAttribute("valorProd", request.getParameter("total"));
             
-            String total = request.getParameter("total").replace(".", "").replace(",", ".");
+            String total = request.getParameter("total").replace("[^0-9]","").replace(".", "").replace(",", ".");
            
             
        %>
