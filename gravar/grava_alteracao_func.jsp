@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
            <link rel="stylesheet" href="../styles/header.css">
-        <title>Gravar No Banco de Dados o Produto Alterado.</title>
+        <title>Gravar Produto Alterado.</title>
          <link rel="icon" href="../icons/logo.png">
             
     </head>
@@ -42,7 +42,7 @@
                 %>
                     <p>Erro Tentando Alterar as Informações.</p>
                     <br/> 
-                   <a href="../paginas/funcionario.jsp"> <input type="submit" value="Voltar" </a>
+                   <a href="../listar/lista_func.jsp"> <input type="submit" value="Voltar" </a>
                 <%               
                 }
 
@@ -53,7 +53,7 @@
                     <p>Erro Tentando Alterar as Informações.</p> 
                     <%= ex.getMessage() %>
                     <br/> 
-                   <a href="../paginas/funcionario.jsp"> <input type="submit" value="Voltar" </a>
+                   <a href="./listar/lista_func.jsp"> <input type="submit" value="Voltar" </a>
                 <%
             }
         %>

@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="../conectar_1.jsp" %>
 <!DOCTYPE html>
@@ -27,43 +28,94 @@
         <section id="cesta_container">
             <h2>Produtos</h2>
             <hr>
-            <div class="produtos_lista">
+           
+                    
+                   <% 
+                       ResultSet rs =null ;
+                       String sql = null;
+                       try{
+                      ArrayList <String> prod = (ArrayList) request.getSession().getAttribute("prod");;
+                      
+                      for(String pd : prod){
+                          if(pd.split("_")[1].equals("pc")){
+                          String id = pd.split("_")[0];
+                              sql = "SELECT imagem, nome_prod, preco FROM computador WHERE cod_prod = "+id;
+                          
+                          } else if(pd.split("_")[1].equals("note")){
+                            String id = pd.split("_")[0];
+                              sql = "SELECT imagem, nome_prod, preco FROM notebook WHERE cod_prod = " + id;
+                          
+                          } else if(pd.split("_")[1].equals("fonte")){
+                            String id = pd.split("_")[0];
+                              sql = "SELECT imagem, nome_prod, preco FROM fonte WHERE cod_prod = " + id;
+                          
+                          } else if(pd.split("_")[1].equals("hdd")){
+                            String id = pd.split("_")[0];
+                              sql = "SELECT imagem, nome_prod, preco FROM hdd WHERE cod_prod = " + id;
+                          
+                          } else if(pd.split("_")[1].equals("pm")){
+                            String id = pd.split("_")[0];
+                              sql = "SELECT imagem, nome_prod, preco FROM placa_mae WHERE cod_prod = " + id;
+                          
+                          } else if(pd.split("_")[1].equals("pv")){
+                            String id = pd.split("_")[0];
+                              sql = "SELECT imagem, nome_prod, preco FROM placa_video WHERE cod_prod = " + id;
+                          
+                          } else if(pd.split("_")[1].equals("proc")){
+                            String id = pd.split("_")[0];
+                              sql = "SELECT imagem, nome_prod, preco FROM processador WHERE cod_prod = " + id;
+                          
+                          } else if(pd.split("_")[1].equals("ram")){
+                            String id = pd.split("_")[0];
+                              sql = "SELECT imagem, nome_prod, preco FROM ram WHERE cod_prod = " + id;
+                          
+                          } else if(pd.split("_")[1].equals("ssd")){
+                            String id = pd.split("_")[0];
+                              sql = "SELECT imagem, nome_prod, preco FROM ssd WHERE cod_prod = " + id;
+                          
+                          } 
+                            pstm = con.prepareStatement(sql);
+                             rs = pstm.executeQuery();
+                   
+                      
+                          while(rs.next()) {
+                                                                   
+                    %>
+                    <div class="produtos_lista">
                 <div class="produto_box">
                     
-                   <%
-                       ResultSet rs =null ;
-                       String sql;
-                       try{
-                       String categoria = request.getParameter("categoria") ;
-                           sql = "SELECT imagem, nome_prod, preco FROM computador WHERE cod_prod = ?";
-                            pstm = con.prepareStatement(sql);
-                            pstm.setInt(1,Integer.parseInt(request.getParameter("id")));
-                             rs = pstm.executeQuery();
-
-                                            while(rs.next()) {    
-                    %>
-                   
                     <div class="produto_img"> <%= rs.getString(1)%> </div>
                     <p class="produto_titulo"> <strong> <%=rs.getString(2)%> </strong> </p>
                     
-                    </div>
+                    &nbsp;
+           
                 <div class='quant'>
-                    <button class="menos">-</button>
+                   
+                    <button name="menos" class="menos">-</button>
                     <p class="qtd">1</p>
                     <button class="mais">+</button>
                 </div>
+                    
                 <p class="preco"> R$ <%=rs.getDouble(3)%> </p>
-            </div>
-               <%       }
+                  
+                </div> </div>
+            <hr>
+                 
+            
+                            <%   
+
+                                }
+                                    }
                             
                                 }catch(SQLException ex) {
                                     out.print(ex.getMessage());
                                 }
                            
                    %>
-            <hr>
-           
-        </section>
+         
+        
+       
+        </section> 
         <section class="result_container">
             <div class="result">
           

@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -83,7 +84,10 @@
 
     <main>
         <section>
-
+            <%   
+                    ArrayList<String> prod = new ArrayList<String>();
+                    request.getSession().setAttribute("prod",prod);
+            %>
             <!-- Destaques-->
 
             <h1 class="ttlprod"> Destaques</h1>

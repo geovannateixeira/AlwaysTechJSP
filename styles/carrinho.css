@@ -17,6 +17,7 @@ article {
     color: black;
     border-radius: 10px;
     box-shadow: 3px 2px 2px 3px crimson;
+    overflow-y: scroll;
 }
 #cesta_container h2 {
     width: fit-content;
@@ -75,7 +76,6 @@ hr {
     width: 100px;
     margin-left: 5px;
 }
-
 
 .result_container {
     width: 30%;

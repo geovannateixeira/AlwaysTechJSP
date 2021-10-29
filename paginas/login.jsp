@@ -33,7 +33,7 @@
                     <label for="password"> Senha </label>
                     <input type="password" name="password" id="password" placeholder="Digite Sua Senha">
 
-                    <a href="#" id="forgot-pass"> Esqueceu a Senha? </a>
+                    <a href="../paginas/esqueciSenha.jsp" id="forgot-pass"> Esqueceu a Senha? </a>
                     <input type="submit" value="login" onclick="Login()"> 
                    
                 </form>

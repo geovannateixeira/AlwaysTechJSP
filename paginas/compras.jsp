@@ -122,7 +122,7 @@
             <h3 class="title">Cupom</h3>
             <div id="cupom">
                 
-                <form action="../paginas/validaCupom.jsp?total=<%=total%>&produto=<%=request.getParameter("produto") %>" method="POST">
+                <form action="../paginas/validaCupom.jsp?total=<%=total%>&produto=<%=request.getParameter("produto")%>" method="POST">
                     
                     <input id="cupom_input" type="text" name="cupom" autocomplete="off">
                     <input type="submit" value="Aplicar">

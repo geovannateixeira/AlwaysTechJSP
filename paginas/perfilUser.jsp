@@ -1,5 +1,4 @@
-<%@ include file="../validacao.jsp" %>
-
+<%@ include file="../conectar_1.jsp" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,6 +18,7 @@
     
 <%
     String login = (String) session.getAttribute("login");
+    String cpf = (String) session.getAttribute("cpf");
     if (login == null){
         response.sendRedirect("login.jsp");
     } 
@@ -70,15 +70,25 @@
                         
                                 <div class="mostra">
                                     <p> Enviamos um email para vc por segurança. Não esqueça de clicar no link</p>
-                                </div>
-
+                              </div>
+                            <%
+                            ResultSet rs;    
+                            String sql;
+                            try{
+                                sql = "SELECT email,senha, nome, dt_nascimento, cpf, celular FROM clientes WHERE cpf = ?";
+                                pstm = con.prepareStatement(sql);
+                                pstm.setString(1,cpf);
+                                rs = pstm.executeQuery();
+                            
+                             while (rs.next()) {
+                            %>
                                 <div class="email">
                                     <label class="ast"> * </label>   
                                     <label class="lbl"> Email: </label> 
-                                    <input name="email" id="email" disabled="" readonly="" value="email@email.com">
+                                    <input name="email" id="email" disabled="" readonly="" value="<%= rs.getString(1)%>">
                                     <span data-cy="change-email" id="alt">Alterar</span>
                                 </div>
-                                                
+                                           
                                 <div class="check">
                                     <input type="checkbox" id="promotionalEmails" data-cy="formField__promotionalEmails" value="receber e-mails promocionais">
                                     <label class="sub">receber e-mails promocionais</label>
@@ -87,7 +97,7 @@
                                 <div class="senha">
                                     <label class="ast"> * </label>
                                     <label class="lbl"> Senha </label> 
-                                    <input name="password" type="password" disabled="" value="......">
+                                    <input name="password" type="password" disabled="" value="<%= rs.getString(2)%>">
                                     <span data-cy="change-password" id="alt1"> Alterar</span>
                                 </div>
 
@@ -101,19 +111,19 @@
                                 <div class="nome">
                                     <label class="ast"> * </label>
                                     <label class="lbl">Nome Completo </label>
-                                    <input id="formField__name" data-cy="formField__name" type="text" cursor="pointer" name="name" required="">
+                                    <input id="formField__name" data-cy="formField__name" type="text" cursor="pointer" name="name" required="" disabled="" readonly="" value="<%= rs.getString(3)%>">
                                 </div>    
                             
                                 <div class="dt">
                                     <label class="ast"> * </label>   
                                     <label class="lbl">Data De Nascimento </label>
-                                    <input data-cy="formField__birthDate" class="sc-nVjpj jzhAMS birthDateInput " name="birthDate" type="date" required="" autocorrect="off" inputmode="numeric" placeholder="__/__/____" id="formField__birthDate">
+                                    <input data-cy="formField__birthDate" disabled="" readonly="" class="sc-nVjpj jzhAMS birthDateInput " name="birthDate" type="date" required="" autocorrect="off" inputmode="numeric" placeholder="__/__/____" id="formField__birthDate" value="<%= rs.getDate(4)%>">
                                 </div>
 
                                 <div class="doc">   
                                     <label class="ast"> * </label>
                                     <label class="lbl">CPF </label>
-                                    <input name="cpf" disabled="" readonly="" value="##########">
+                                    <input name="cpf" disabled="" readonly="" value="<%= rs.getString(5)%>">
                                     <br>
                                     <span class="sub">Necessário Para Emissão das Notas Fiscais</span>
                                 </div>
@@ -121,10 +131,18 @@
                                 <div class="tel">
                                     <label class="ast"> * </label>
                                     <label class="lbl">Telefone </label>
-                                    <input data-cy="formField__phone" class="sc-nVjpj jzhAMS phoneInput " name="phone" type="tel" required="" autocorrect="off" inputmode="numeric" placeholder="(__) _____-____" id="formField__phone" value="(**) *****-****">
+                                    <input data-cy="formField__phone" class="sc-nVjpj jzhAMS phoneInput " name="phone" type="tel" required="" autocorrect="off" inputmode="numeric" placeholder="(__) _____-____" id="formField__phone" value="<%= rs.getString(6)%>">
                                     <br>
                                     <span class="sub"> Caso Nós	Precisaremos Entrar em Contato Sobre Seus Pedidos</span>  
                                 </div>
+                                    
+                                       <%
+                               }
+                               } catch(Exception ex){
+                                          out.print("ERRO" + ex.getMessage());
+                                    }
+                               %>  
+                                    
                                 <div class="btn">
                                 <input class="btn" type="button" value="Salvar Alterações" disabled="" >
                                 </div>   
@@ -157,12 +175,23 @@
                                 <h2 class="descricao1">Preço R$4.220,00</h2>
                             </div>
                         </div>
+                        
+                         <%
+                            try{
+                                sql = "SELECT endereco FROM clientes WHERE cpf = ?";
+                                pstm = con.prepareStatement(sql);
+                                pstm.setString(1,cpf);
+                                rs = pstm.executeQuery();
+                            
+                             while (rs.next()) {
+                            %>
+                        
                         <div class="endereco"> 
-                            <h1 class="endereco1"> Endereço: R. São Francisco, 442 </h1> 
+                            <h1 class="endereco1"> Endereço: <%= rs.getString(1)%> </h1> 
                         </div>
                     </div>
                 </div>
-
+                             
                 <div class="container">
                     <div class="info">
                         <div class="imagem">
@@ -179,7 +208,7 @@
                             </div>
                         </div>
                         <div class="endereco">
-                            <h1 class="endereco1"> Endereço: R. São Francisco, 442 </h1>
+                            <h1 class="endereco1"> Endereço: <%= rs.getString(1)%> </h1>
                         </div>
                     </div>
                 </div>
@@ -201,8 +230,14 @@
                             </div>
                         </div>
                         <div class="endereco">
-                            <h1 class="endereco1"> Endereço: R. São Francisco, 442 </h1>
+                            <h1 class="endereco1"> Endereço: <%= rs.getString(1)%> </h1>
                         </div>
+                        <%
+                               }
+                               } catch(Exception ex){
+                                          out.print("ERRO" + ex.getMessage());
+                                    }
+                        %> 
                     </div>
                 </div>
             </div>
@@ -287,11 +322,19 @@
 
                 <div class="compras"  style="display: none;" >
                 <div class="txt"> <h1 class="txt1"> Compras Recentes </h1> </div>
-    
+                          <%   
+                              try{
+                                sql = "SELECT cod_prod, nome_prod, preco, qtd, imagem FROM compras WHERE cpf = ?";
+                                pstm = con.prepareStatement(sql);
+                                pstm.setString(1,cpf);
+                                rs = pstm.executeQuery();
+                            
+                             while (rs.next()) {
+                          %>
                 <div class="container">
                     <div class="info">
                         <div class="imagem">
-                            <img src="https://i.ibb.co/pJynwbw/notebook8.png" alt="notebook8">
+                            <%= rs.getString(5)%>
                         </div>
                         <div class="middle-analise">
                             <div class="status2">
@@ -300,56 +343,47 @@
                             
                             <div class="desc">
                                 <h1 class="descricao1">
-                                    Notebook Gamer Asus ROG Zephyrus S 
+                                   <%= rs.getString(2)%>
                                 </h1>
-                                <h2 class="descricao1">Preço R$4.220,00</h2>
+                                <h2 class="descricao1">Preço R$<%= rs.getString(3)%></h2>
+                                <h2 class="descricao1">Quantidade: <%= rs.getString(4)%></h2>
                             </div>
                         </div>
+                        
+                        <%
+                                }
+                               } catch(Exception ex){
+                                          out.print("ERRO" + ex.getMessage());
+                                    }
+                        
+                        
+                        %>
+                        
+                        <%
+                            try{
+                                sql = "SELECT endereco FROM clientes WHERE cpf = ?";
+                                pstm = con.prepareStatement(sql);
+                                pstm.setString(1,cpf);
+                                rs = pstm.executeQuery();
+                            
+                             while (rs.next()) {
+                            %>
                         <div class="end-and"> 
-                            <h1 class="end1"> <p class="and" > Em Andamento </p> no Endereço R. São Francisco, 442 </h1>
+                            <h1 class="end1"> <p class="and" > Em Andamento </p> Endereço <%=rs.getString(1)%> </h1>
                         </div>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="info">
-                        <div class="imagem">
-                            <img src="https://i.ibb.co/VwFyZhS/gabinete.png" alt="gabinete">
-                        </div>
-                        <div class="middle-analise">
-                            <div class="status2">
-                                <h1 class="stt"> Pedido N° 2858 </h1>
-                            </div>                    
-                            <div class="desc">
-                                <h1 class="descricao1"> Desktop Gamer XH1</h1>
-                                <h2 class="descricao1">Preço R$3.650,00 </h2>
-                            </div>
-                        </div>
-                        <div class="end">
-                            <h1 class="end1"> <p class="sucesso" > Entregue </p>  11/12/2020 ás 15:55 no Endereço R. São Francisco, 442 </h1>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container">
-                    <div class="info">
-                        <div class="imagem">
-                            <img src="https://i.ibb.co/D8QLfF5/fonte.jpg" alt="fonte">
-                        </div>
-                        <div class="middle-analise">
-                            <div class="status2">
-                                <h1 class="stt"> Pedido N° 1471 </h1>
-                            </div>
-                            <div class="desc">
-                                <h1 class="descricao1">Fonte Corsair CX600 80 Plus</h1>
-                                <h2 class="descricao1">Preço R$299,00  </h2>
-                            </div>
-                        </div>
-                        <div class="end">
-                            <h1 class="end1"> <p class="sucesso" > Entregue </p>  12/10/2020 ás 17:50 no Endereço R. São Francisco, 442 </h1>
-                        </div>
-                    </div>
-                </div>
-
+                           <%
+                                }
+                               } catch(Exception ex){
+                                          out.print("ERRO" + ex.getMessage());
+                                    }
+                        
+                        
+                        %>
+                        
+           
+               
                 </div>
 
                 <!--Página de Cupom-->
@@ -360,59 +394,35 @@
                     <div class="imagem-cupom">
                         <img src="https://i.ibb.co/mG3BppX/al3.png" alt="al3">
                     </div>
-
-                    <div class="cupom">
-                        <div class="status1">
-                            <h1 class="stt"> Cupom de Frete Grátis </h1>
-                        </div>
-                        <div class="desc">
-                            <h1 class="desc1"> Válido Somente Para Compras Acima de R$150,00 </h1>
-                        </div>
                         
-                        <input class="btnc" type="button" value="Usar Cupom">
-                    </div>
-                </div>
-
-
-                <div class="info3">
-                    <div class="imagem-cupom">
-                        <img src="https://i.ibb.co/mG3BppX/al3.png" alt="al3">
-                    </div>
-
                     <div class="cupom">
                         <div class="status1">
-                            <h1 class="stt"> Cupom de 5% </h1>
-                        </div>                    
-                        <div class="desc">
-                            <h1 class="desc1"> Válido Somente Para Notebooks </h1>
+                            <h1 class="stt"> Cupom de 10% </h1>
                         </div>
+                        <div class="desc">
+                        <%
+                            try{
+                                sql = "SELECT cod_cupom, data_val FROM cupom WHERE cod_cupom = 15796841";
+                                pstm = con.prepareStatement(sql);
+                                rs = pstm.executeQuery();
+                            
+                             while (rs.next()) {
+                            %>
                         
-                        <input class="btnc" type="button" value="Usar Cupom">
-                    </div>
+                            <h1 class="desc1"> Código do Cupom: <%=rs.getString(1)%> <br> Data de Validade: <%=rs.getDate(2)%>  </h1>
+                        
+                           <%
+                               }
+                               } catch(Exception ex){
+                                          out.print("ERRO " + ex.getMessage());
+                                    }
+                           %>
+                        </div>
                 </div>
-
-
-                <div class="info3">
-                    <div class="imagem-cupom">
-                        <img src="https://i.ibb.co/mG3BppX/al3.png" alt="al3">
-                    </div>
-
-                    <div class="cupom">
-                        <div class="status1">
-                            <h1 class="stt"> Compre 1 Leve 2 </h1>
-                        </div>
-                    
-                        <div class="desc">
-                            <h1 class="desc1"> Válido Somente Para Componentes </h1>
-                        </div>
-                    
-                        <input class="btnc" type="button" value="Usar Cupom">
-
                     </div>
                 </div>
                 
-                </div>
-            </div>
+                
 
         </section>
     </main>

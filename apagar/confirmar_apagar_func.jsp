@@ -17,7 +17,7 @@
     } 
 %>
        
-        <h2>Deseja Realmente Excluir Esse Funcionário do Banco de Dados?</h2> <br/>
+        <h2>Deseja Realmente Excluir Esse Funcionário ?</h2> <br/>
         <%
            String nome = request.getParameter("nome");
            String cargo = request.getParameter("cargo");

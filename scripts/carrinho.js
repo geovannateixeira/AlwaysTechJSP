@@ -24,6 +24,8 @@ function subtrair() {
     let val = parseInt(this.nextElementSibling.innerText);
     if(val == 1) {
         alert("Este valor é o mínino possivel");
+    } else if(val == 0){
+        alert("Produto Removido");
     }
     else {
         this.nextElementSibling.innerText = val - 1;

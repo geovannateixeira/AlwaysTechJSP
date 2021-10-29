@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cadastro de aluno</title>
+        <title>Excluir Produto</title>
+        <link rel="icon" href="../icons/logo.png">
         <meta charset="utf-8">  
         <link rel="stylesheet" href="../styles/estilos.css" type="text/css" />
         <style>
@@ -22,7 +23,7 @@
     } 
 %>
         
-        <h2>Confirmar a Eliminação no Banco de Dados?</h2>
+        <h2>Confirmar a Eliminação do Produto?</h2>
         <%
            String cod_prod = request.getParameter("cod_prod");
            String nome_prod = request.getParameter("nome_prod");

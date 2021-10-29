@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" import="java.sql.*" pageEncoding="UTF-8"%>
 <%@ include file="../conecta.jsp" %>
 <!DOCTYPE html>
@@ -20,9 +21,12 @@
             <div class="produto_box" id="produto_img">
                 <div id="img_selected">
             <% 
+                ArrayList <String> prod = (ArrayList) request.getSession().getAttribute("prod");
+               
+                
                 String sql;
                 ResultSet rs = null;
-                String categoria = request.getParameter("categoria");
+               
               
                         try {
                             sql = "SELECT imagem, img1, img2, img3 FROM computador WHERE cod_prod = '" + request.getParameter("id") + "';";
@@ -47,7 +51,9 @@
                             out.print(ex.getMessage());
                         }
                    %>
-            <div class="produto_box" id="produto_details">
+          
+                   <div class="produto_box" id="produto_details">
+                
                 <% 
                     try{
                         sql = "SELECT nome_prod, descricao FROM computador WHERE cod_prod = '" + request.getParameter("id") + "';";
@@ -63,10 +69,16 @@
                         out.print(ex.getMessage());
                     }
                 %>
-            </div>
+          
+                   </div>
             <div class="produto_box" id="produto_compra">
                 <div id="valor_content">
-                    <% 
+                    
+                    <%  
+                
+                        prod.add(request.getParameter("id") + "_" +  request.getParameter("categoria"));
+                        request.getSession().getAttribute("prod");
+                        out.print(prod);
                         try{
                             sql = "SELECT preco FROM computador WHERE cod_prod = '" + request.getParameter("id") + "';";
                             rs = stm.executeQuery(sql);
@@ -75,7 +87,7 @@
                                 out.print("<h3 id='produto_valor'>R$ " + rs.getFloat(1) +"</h3>");
                           
                     %>
-                    <h4 id="produto_parcelamento">em até 12x no cartão de crêdito</h4>
+                    <h4 id="produto_parcelamento">em até 12x no cartão de crédito</h4>
                 </div>
                 <div id="button_content">
                    
