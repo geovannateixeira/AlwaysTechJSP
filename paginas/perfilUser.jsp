@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ include file="../conectar_1.jsp" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,13 +18,24 @@
 <body>
     
 <%
+    // ArrayList<String> prod = new ArrayList<String>();
+                    //request.getSession().setAttribute("prod",prod);
+                    
+                    ArrayList<String> prod = null;
+   		   
+   				if(application.getAttribute("prod") != null){
+   					prod = (ArrayList) application.getAttribute("prod");
+   				}else{
+   					prod = new ArrayList<String>();
+   				}
+                                  application.setAttribute("prod", prod);
+    
     String login = (String) session.getAttribute("login");
     String cpf = (String) session.getAttribute("cpf");
     if (login == null){
         response.sendRedirect("login.jsp");
     } 
 %>
-  
         <header> 
               <script src="../scripts/headerGenerate.js"> </script>
         </header>
@@ -31,10 +43,20 @@
     <main>
         <section>
             <div class="lateral">
-                    
+                       <%
+                            ResultSet rs;    
+                            String sql;
+                            try{
+                                sql = "SELECT email,senha, nome, dt_nascimento, cpf, celular FROM clientes WHERE cpf = ?";
+                                pstm = con.prepareStatement(sql);
+                                pstm.setString(1,cpf);
+                                rs = pstm.executeQuery();
+                            
+                             while (rs.next()) {
+                            %>
                 <div class="lt_container">
                     <div class="lt">
-                        <input type="submit" class="ttl" id="dds" value="Meus Dados">  
+                        <input type="submit" class="ttl" id="dds" value="<%= rs.getString(3)%>">  
                     </div>
 
                     <div class="lt"> 
@@ -61,7 +83,8 @@
 
             <div class="content">
                 <div class="sobre">
-                    <div class="txt"> <h1 class="txt1"> Meus Dados</h1> </div>
+                  
+                    <div class="txt"> <h1 class="txt1">Meus Dados </h1> </div>
 
                     <div class="dados">
                         <h1 class="dds"> Dados Cadastrados</h1>
@@ -71,17 +94,7 @@
                                 <div class="mostra">
                                     <p> Enviamos um email para vc por segurança. Não esqueça de clicar no link</p>
                               </div>
-                            <%
-                            ResultSet rs;    
-                            String sql;
-                            try{
-                                sql = "SELECT email,senha, nome, dt_nascimento, cpf, celular FROM clientes WHERE cpf = ?";
-                                pstm = con.prepareStatement(sql);
-                                pstm.setString(1,cpf);
-                                rs = pstm.executeQuery();
-                            
-                             while (rs.next()) {
-                            %>
+                           
                                 <div class="email">
                                     <label class="ast"> * </label>   
                                     <label class="lbl"> Email: </label> 
@@ -158,10 +171,21 @@
                 <div class="analise" style="display: none;">
                 <div class="txt"> <h1 class="txt1"> Análise dos Pedidos </h1> </div>
 
-                <div class="container">
-                    <div class="info">
+               
+                        <%   
+                              try{
+                                sql = "SELECT compras.cod_prod, compras.nome_prod, compras.preco, compras.qtd, compras.imagem, clientes.endereco FROM compras, clientes WHERE compras.cpf = ? AND clientes.cpf = ?";
+                                pstm = con.prepareStatement(sql);
+                                pstm.setString(1,cpf);
+                                pstm.setString(2,cpf);
+                                rs = pstm.executeQuery();
+                            
+                             while (rs.next()) {
+                          %>
+                   <div class="container">
+                    <div class="info"> 
                         <div class="imagem">
-                            <img src="https://i.ibb.co/HdC4kFv/gabirgb.png" alt="gabirgb" >
+                            <%= rs.getString(5)%>
                         </div>
                         
                         <div class="middle-analise">
@@ -170,78 +194,30 @@
                             </div>
                             <div class="desc">
                                 <h1 class="descricao1">
-                                    PC Gamer Intel Core i7 3.80Ghz RAM 16GB (Geforce GTX 1650 4GB) HD 1TB 
+                                   <%= rs.getString(2)%>
                                 </h1>
-                                <h2 class="descricao1">Preço R$4.220,00</h2>
+                                <h2 class="descricao1">Preço R$<%= rs.getString(3)%></h2>
+                                <h2 class="descricao1">Quantidade: 1</h2>
                             </div>
                         </div>
                         
-                         <%
-                            try{
-                                sql = "SELECT endereco FROM clientes WHERE cpf = ?";
-                                pstm = con.prepareStatement(sql);
-                                pstm.setString(1,cpf);
-                                rs = pstm.executeQuery();
-                            
-                             while (rs.next()) {
-                            %>
                         
                         <div class="endereco"> 
-                            <h1 class="endereco1"> Endereço: <%= rs.getString(1)%> </h1> 
+                            <h1 class="endereco1"> Endereço: <%= rs.getString("endereco")%> </h1> 
                         </div>
-                    </div>
-                </div>
-                             
-                <div class="container">
-                    <div class="info">
-                        <div class="imagem">
-                            <img src="https://i.ibb.co/d6KrLTJ/moni.png" alt="moni">
-                        </div>
-                        
-                        <div class="middle-analise">
-                            <div class="status2">
-                                <h1 class="stt"> Status da Entrega </h1>
-                            </div>                    
-                            <div class="desc">
-                                <h1 class="descricao1"> Monitor Acer 19.5´ HD LED, HDMI/VGA </h1>
-                                <h2 class="descricao1">Preço R$650,00 </h2>
-                            </div>
-                        </div>
-                        <div class="endereco">
-                            <h1 class="endereco1"> Endereço: <%= rs.getString(1)%> </h1>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container">
-                    <div class="info">
-                        <div class="imagem">
-                            <img src="https://i.ibb.co/r48YKmB/mouse.png" alt="mouse" >
-                        </div>
-                        
-                        
-                        <div class="middle-analise">
-                            <div class="status2">
-                                <h1 class="stt"> Status da Entrega </h1>
-                            </div>
-                            <div class="desc">
-                                <h1 class="descricao1"> Mouse Gamer ReDragon Centrophorus 2</h1>
-                                <h2 class="descricao1"> Preço R$99,00  </h2>
-                            </div>
-                        </div>
-                        <div class="endereco">
-                            <h1 class="endereco1"> Endereço: <%= rs.getString(1)%> </h1>
-                        </div>
+                   </div>
+            </div>       
                         <%
                                }
                                } catch(Exception ex){
                                           out.print("ERRO" + ex.getMessage());
                                     }
                         %> 
-                    </div>
-                </div>
-            </div>
+                    
+            
 
+                </div>
+                        
             <!--Págine de Lista de Produtos-->
 
             <div class="lista"  style="display: none;">
@@ -319,14 +295,14 @@
 
 
                 <!--Página de Compras Recentes-->
-
                 <div class="compras"  style="display: none;" >
                 <div class="txt"> <h1 class="txt1"> Compras Recentes </h1> </div>
                           <%   
                               try{
-                                sql = "SELECT cod_prod, nome_prod, preco, qtd, imagem FROM compras WHERE cpf = ?";
+                                sql = "SELECT compras.cod_prod, compras.nome_prod, compras.preco, compras.qtd, compras.imagem, clientes.endereco FROM compras, clientes WHERE compras.cpf = ? AND clientes.cpf = ?";
                                 pstm = con.prepareStatement(sql);
                                 pstm.setString(1,cpf);
+                                pstm.setString(2,cpf);
                                 rs = pstm.executeQuery();
                             
                              while (rs.next()) {
@@ -346,47 +322,28 @@
                                    <%= rs.getString(2)%>
                                 </h1>
                                 <h2 class="descricao1">Preço R$<%= rs.getString(3)%></h2>
-                                <h2 class="descricao1">Quantidade: <%= rs.getString(4)%></h2>
+                                <h2 class="descricao1">Quantidade: 1</h2>
                             </div>
                         </div>
                         
-                        <%
-                                }
-                               } catch(Exception ex){
-                                          out.print("ERRO" + ex.getMessage());
-                                    }
-                        
-                        
-                        %>
-                        
-                        <%
-                            try{
-                                sql = "SELECT endereco FROM clientes WHERE cpf = ?";
-                                pstm = con.prepareStatement(sql);
-                                pstm.setString(1,cpf);
-                                rs = pstm.executeQuery();
-                            
-                             while (rs.next()) {
-                            %>
-                        <div class="end-and"> 
-                            <h1 class="end1"> <p class="and" > Em Andamento </p> Endereço <%=rs.getString(1)%> </h1>
+                            <div class="end-and"> 
+                            <h1 class="end1"> Endereço <%=rs.getString("endereco")%> </h1>
                         </div>
                     </div>
                 </div>
-                           <%
-                                }
-                               } catch(Exception ex){
-                                          out.print("ERRO" + ex.getMessage());
+                        
+                           <% }
+                                
+                                } catch(Exception ex){
+                                        out.print(ex.getMessage());
                                     }
                         
                         
                         %>
                         
-           
-               
-                </div>
-
-                <!--Página de Cupom-->
+                   </div>
+                
+              <!--Página de Cupom-->
                 <div class="cupons"  style="display: none;">
                 <div class="txt"> <h1 class="txt1"> Cupons </h1> </div>
 
@@ -394,13 +351,13 @@
                     <div class="imagem-cupom">
                         <img src="https://i.ibb.co/mG3BppX/al3.png" alt="al3">
                     </div>
-                        
+
                     <div class="cupom">
                         <div class="status1">
                             <h1 class="stt"> Cupom de 10% </h1>
                         </div>
                         <div class="desc">
-                        <%
+                            <%
                             try{
                                 sql = "SELECT cod_cupom, data_val FROM cupom WHERE cod_cupom = 15796841";
                                 pstm = con.prepareStatement(sql);
@@ -418,12 +375,17 @@
                                     }
                            %>
                         </div>
-                </div>
+                        
+                        <input class="btnc" type="button" value="Usar Cupom">
                     </div>
                 </div>
-                
-                
 
+
+               
+                </div>
+                </div>
+            </div>
+                           
         </section>
     </main>
     

@@ -1,0 +1,37 @@
+section{
+    width: 450px;
+    height: 350px;
+    margin: auto;
+    margin-top: 80px;
+    border-radius: 5%;
+    text-align: center;
+    font-family: Calibri;
+    box-shadow: 2px 2px 2px 2px #DC143C;
+}
+
+.titulo{
+    line-height: 50px;
+}
+
+button{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    width: 150px;
+    height: 40px;
+    padding: 4px;
+    border-radius: 20px ;
+    margin-top: 150px;
+    margin-left: 45px;
+    color:#FFFFFF;
+    background-color: #212346;
+    cursor: pointer;
+    float: left;
+}
+
+button:hover{
+    background-color: #DC143C;
+    transition: .5s;
+}
+

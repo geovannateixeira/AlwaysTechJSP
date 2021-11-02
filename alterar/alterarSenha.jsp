@@ -4,11 +4,10 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Aluno alterado</title>
-        <link rel="stylesheet" href="estilos.css" type="text/css" />
+        <title>Dados Alterados</title>
     </head>
     <body>
-        <h2>Alteração dos dados do aluno</h2>
+        <h2>Alteração dos Dados</h2>
         <%            
              String sql; 
                 sql = "UPDATE clientes SET senha = ? WHERE cpf = ?";
@@ -18,9 +17,12 @@
                 pstm.setString(2,request.getParameter("cpf"));
                 
                 int retorno = pstm.executeUpdate();
-                if (retorno > 0){
-                out.print("Dados alterados com sucesso");
-                response.sendRedirect("../paginas/login.jsp");
+                if (retorno > 0){%>
+                <script>
+                    alert("Senha Modificada Com Sucesso ! Efetue o Login Novamente !");
+                    window.location = "../paginas/login.jsp";
+                </script>
+                    <%
                 }
                 else out.print("Erro. Tente novamente");
                 pstm.close();
@@ -28,5 +30,5 @@
         %>
     </body>
     <br/> <br/>
-    <a href="paginas/login.jsp">Voltar</a> 
+    <a href="../paginas/login.jsp">Voltar</a> 
 </html>

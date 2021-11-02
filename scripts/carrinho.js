@@ -24,9 +24,7 @@ function subtrair() {
     let val = parseInt(this.nextElementSibling.innerText);
     if(val == 1) {
         alert("Este valor é o mínino possivel");
-    } else if(val == 0){
-        alert("Produto Removido");
-    }
+    } 
     else {
         this.nextElementSibling.innerText = val - 1;
     }
@@ -49,7 +47,6 @@ function valor_total() {
     for(let i = 0; i < tagPreco.length; i++) {
         soma = soma + parseInt(tagPreco[i].innerText.substring(2)) * parseInt(tagQtd[i].innerText);
     }
-
     document.getElementById("total_value").innerText = "Total: R$ " + soma.toLocaleString('pt-br', {minimumFractionDigits: 2});
 }
 

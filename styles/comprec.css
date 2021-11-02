@@ -28,7 +28,7 @@
 
 .end-and{
     border-radius: 8px;
-    box-shadow: 2px 2px 2px 2px #F48C06;
+    box-shadow: 2px 2px 2px 2px #1B223C;
     width: 25%;
     height: 110px;
     margin-top: 15px;
@@ -37,6 +37,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.imagem{
+    margin-left: 20px;
 }
 
 .end{

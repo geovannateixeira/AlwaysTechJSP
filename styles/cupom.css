@@ -93,6 +93,7 @@ input[type="button"]{
     height: 40px;
     padding: 4px;
     border-radius: 20px ;
+    margin-top: 20px;
     color:#FFFFFF;
     background-color: #212346;
     cursor: pointer;

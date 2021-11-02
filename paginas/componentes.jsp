@@ -118,7 +118,7 @@
                 <h1 class="title"> Populares </h1>
     
                 <div class="comp">
-                    <a href="#">
+                    <a href="../paginas/produto.jsp?id=2&categoria=fonte">
                         <img src="https://i.ibb.co/vXVhBKk/fonte-gm.png" alt="fonte-gm">
                         <div class="txt">
                             <p> Fonte GameMax GM550 </p>
@@ -127,7 +127,7 @@
                     </a>
                 </div>
                 <div class="comp">
-                    <a href="#">
+                    <a href="../paginas/produto.jsp?id=1&categoria=hdd">
                         <img src="https://i.ibb.co/qdddCmZ/ult3.jpg" alt="ult3">
                         <div class="txt">
                             <p> HD Seagate BarraCuda </p>
@@ -136,7 +136,7 @@
                     </a>
                 </div>
                 <div class="comp">
-                    <a href="#">
+                    <a href="../paginas/produto.jsp?id=2&categoria=ssd">
                         <img src="https://i.ibb.co/XLLr3NP/ssd-blue.png" alt="ssd-blue">
                         <div class="txt">
                             <p> SSD Interno BLUE 1TB </p>
@@ -145,7 +145,7 @@
                     </a>
                 </div>
                 <div class="comp">
-                    <a href="#">
+                    <a href="../paginas/produto.jsp?id=2&categoria=pm">
                         <img src="https://i.ibb.co/k4KKvMY/pm-asus.png" alt="pm-asus">
                         <div class="txt">
                             <p> Placa Mãe ASUS Prime B450M </p>
@@ -154,7 +154,7 @@
                     </a>
                 </div>
                 <div class="comp">
-                    <a href="#">
+                    <a href="../paginas/produto.jsp?id=1&categoria=pv">
                         <img src="https://i.ibb.co/RzJWY7T/pv.png" alt="pv">
                         <div class="txt">
                             <p> Placa de Vídeo Galax NVIDIA </p>

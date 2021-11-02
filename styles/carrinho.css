@@ -69,6 +69,12 @@ hr {
     margin: 0;
     align-self: center;
 }
+
+.remove{
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
 .preco {
     font-size: 13pt;
     text-align: right;
@@ -94,6 +100,11 @@ hr {
     font-size: 18pt;
     margin-bottom: 0;
 }
+
+.a{
+    text-decoration: none;
+}
+
 .parce {
     margin-top: 0px;
 }

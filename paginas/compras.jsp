@@ -17,7 +17,7 @@
     <header>
         <script src="../scripts/headerGenerate.js"></script>
     </header>
- 
+
         <article>
         <section class="container">
             <h3 class="title">Endereço</h3>
@@ -41,7 +41,6 @@
                         
                while (rs.next()) {
 %>    
-              
                 <p class="dados"><strong>Nome: </strong> <%= rs.getString("nome")%></p>
                 <p class="dados"><strong>Endereço: </strong> <%= rs.getString("endereco") %></p>
                 <p class="dados"><strong>Bairro: </strong><%= rs.getString("bairro") %></p>
@@ -112,7 +111,7 @@
        <%
             session.setAttribute("valorProdutos", request.getParameter("valorProdutos"));
             session.setAttribute("valorProd", request.getParameter("total"));
-            
+          
             String total = request.getParameter("total").replace("[^0-9]","").replace(".", "").replace(",", ".");
            
             
@@ -142,16 +141,18 @@
             </div>
         </section>
             
-        <%
+       
+       
+        <div id="btn_box">
+            <form action="../paginas/confirmaCompra.jsp">
+            <input form="cartao_inputs" type="submit" id="btn" value="Finalizar Compra">
+            </form>
+        </div>
+    </article>
+            <%
                     if(pstm!=null)pstm.close();
                     if(con!=null)con.close(); 
         %>
-       
-        <div id="btn_box">
-            <input form="cartao_inputs" type="submit" id="btn" value="Finalizar Compra">
-            
-        </div>
-    </article>
     <script src="../scripts/compra.js"></script>
 </body>
 </html>

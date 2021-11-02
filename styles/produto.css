@@ -5,6 +5,7 @@ article {
 #produto_content {
     margin: auto;
     width: 70%;
+    /*height: 350px;*/
     display: flex;
     box-shadow: 3px 2px 2px 3px crimson;
 }
@@ -20,7 +21,7 @@ article {
     width: 60%;
     padding-bottom: 20px;
     background-color: white;
-      box-shadow: 3px 2px 2px 3px crimson;
+    box-shadow: 3px 2px 2px 3px crimson;
 }
 #img_selected {
     margin: auto;
@@ -38,7 +39,7 @@ article {
     border: 1px solid #0B132B;
     margin: auto;
     width: 20%;
-    height: 110px;
+    height: 80px;
 }
 #imgs_selection img:hover {
     cursor: pointer;
@@ -134,7 +135,7 @@ input[type="submit"]{
     height: 40px;
     border-radius: 20px ;
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: 0px;
     color:#FFFFFF;
     background-color: crimson;
     cursor: pointer;

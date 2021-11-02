@@ -1,9 +1,13 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.text.NumberFormat"%>
 <%@page import="java.text.DecimalFormatSymbols"%>
 <%@page import="java.util.Locale"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="../conectar_1.jsp" %>
+
+
+
     <%  
         ResultSet rs = null;
         String sql;
@@ -24,6 +28,20 @@
                    double vf = tot - (vd * tot);
 
                    
+                   
+                ArrayList <String> prod = (ArrayList) application.getAttribute("prod");
+              
+                for(String pd : prod){
+                          double valorProd = Double.parseDouble(pd.split("_")[4]);
+                          double valorProdDesc = valorProd - (valorProd * vd);
+                          
+                     prod.set(prod.indexOf(pd), 
+                    pd.substring(0, pd.length() - ("_" + pd.split("_")[4]).length())+ "_" +valorProdDesc);
+                
+                }      
+                
+                    application.setAttribute("prod", prod);
+                   
                  DecimalFormat df = new DecimalFormat("#,##0.00");
 		
 		 String dfm = df.format(tot);
@@ -35,13 +53,14 @@
                    
                    response.sendRedirect("../paginas/compras.jsp?valorProdutos="+session.getAttribute("valorProdutos")+"&total="+dfm+"&produto="+request.getParameter("produto")+"&cupom="+request.getParameter("cupom")+"&desconto="+rs.getInt("valor")+"");
                
+                   
                 } else{
                     response.sendRedirect("../paginas/compras.jsp");
                 }
                  } catch (Exception ex){
                     out.print(ex.getMessage());
                 }
-
+            
              %>
    
             <%

@@ -1,0 +1,72 @@
+section {
+    width: 500px;
+    height: 380px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 3px 2px 2px 3px crimson;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 15px; 
+}
+
+form{
+    width: 10px;
+    margin: auto;
+    margin-left: 155px; 
+}
+
+input{
+    width: 190px;
+    height:30px;
+}
+
+.rotulo{
+    text-align: center;
+}
+
+input[type="submit"]{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    width: 100px;
+    height: 40px;
+    padding: 4px;
+    border-radius: 20px ;
+    margin-top: 20px;
+    margin-left: 50px;
+    color:#FFFFFF;
+    background-color: #212346;
+    cursor: pointer;
+    float: left;
+}
+
+input[type="submit"]:hover{
+    background-color: #DC143C;
+    transition: .5s;
+}
+
+
+input[type="button"]{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    width: 100px;
+    height: 40px;
+    padding: 4px;
+    border-radius: 20px ;
+    margin-top: 40px;
+    margin-left: -100px;
+    color:#FFFFFF;
+    background-color: #212346;
+    cursor: pointer;
+    float: left;
+}
+
+input[type="button"]:hover{
+    background-color: #DC143C;
+    transition: .5s;
+}
