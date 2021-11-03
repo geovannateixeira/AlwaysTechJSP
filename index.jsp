@@ -1,4 +1,3 @@
-<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -84,10 +83,7 @@
 
     <main>
         <section>
-            <%   
-                    ArrayList<String> prod = new ArrayList<String>();
-                    request.getSession().setAttribute("prod",prod);
-            %>
+            
             <!-- Destaques-->
 
             <h1 class="ttlprod"> Destaques</h1>
@@ -117,23 +113,23 @@
 
             <div class="container_products">
                 <div class="prod"> 
-                    <a href="produtos/sky.html">
+                    <a href="paginas/produto.jsp?id=1&categoria=pc">
                         <img src="https://i.ibb.co/7vK4QnB/gab1.jpg" alt="gab1"/>
                         <p>SkyTech Legacy Gaming</p>
-                        <p>R$4.000,00</p>
+                        <p>R$5.200,00</p>
                     </a>
                 </div>
     
                 <div class="prod">
-                    <a href="produtos/hd.html">
-                        <img src="https://i.ibb.co/qdddCmZ/ult3.jpg" alt="ult3"/>
+                    <a href="paginas/produto.jsp?id=2&categoria=hdd">
+                       <img src="https://i.ibb.co/2Z1Rpfr/hd.jpg" alt="hd"/> 
                         <p>HDD WD 1TB</p>
-                        <p>R$600,00</p>
+                        <p>R$270,00</p>
                     </a>
                 </div>
     
                 <div class="prod"> 
-                    <a href="produtos/pm.html">
+                    <a href="paginas/produto.jsp?id=1&categoria=pm">
                         <img src="https://i.ibb.co/2qmVyms/pm.jpg" alt="pm"/>
                         <p>Placa Mãe Asus Prime</p>  
                         <p>R$579,00</p>
@@ -142,15 +138,15 @@
             </div>    
             <div class="container_products">
                 <div class="prod">
-                    <a href="produtos/archangel.html">
+                    <a href="paginas/produto.jsp?id=2&categoria=pc">
                         <img src="https://i.ibb.co/k84qVrG/gab2.jpg" alt="gab2"/>
                         <p> SkyTech Archangel Gaming </p> 
-                        <p> R$2.500,00 </p>  
+                        <p> R$4.500,00 </p>  
                     </a>       
                 </div>
     
                 <div class="prod"> 
-                    <a href="produtos/amd.html">
+                    <a href="paginas/produto.jsp?id=2&categoria=proc">
                         <img src="https://i.ibb.co/kx8669c/procAmd.jpg" alt="procAmd"/> 
                         <p> Processador Ryzen 9 3950X </p> 
                         <p>R$2.070,00</p>
@@ -158,7 +154,7 @@
                 </div>
     
                 <div class="prod"> 
-                    <a href="produtos/amd.html">
+                    <a href="paginas/produto.jsp?id=1&categoria=proc">
                         <img src="https://i.ibb.co/Qv7zZw1/procIntl.jpg" alt="procIntl"/> 
                         <p>Intel Core i9 9960X</p> 
                         <p>R$4.170,00</p>
@@ -167,10 +163,10 @@
             </div>
             <div class="container_products">
                 <div class="prod"> 
-                    <a href="produtos/amd.html">
+                    <a href="paginas/produto.jsp?id=3&categoria=pc">
                         <img src="https://i.ibb.co/mCLqzHQ/gab3.png" alt="gab3"/> 
                         <p>CUK ROG Strix G15CK Gaming Desktop</p> 
-                        <p>R$2.800,00</p>
+                        <p>R$4.000,00</p>
                     </a>
                 </div>
     
@@ -183,7 +179,7 @@
                 </div>
     
                 <div class="prod"> 
-                    <a href="produtos/amd.html">
+                    <a href="paginas/produto.jsp?id=1&categoria=fonte">
                         <img src="https://i.ibb.co/D8QLfF5/fonte.jpg" alt="fonte"/> 
                         <p>Fonte Corsair Series CX600</p> 
                         <p>R$450,00</p>
@@ -197,7 +193,7 @@
             <h1 class="ultpc"> Últimas Peças </h1>
             <div class="ult_pecas">
                 <div class="maisvend">
-                    <a href="produtos/ram.html">
+                    <a href="paginas/produto.jsp?id=2&categoria=ram">
                         <div class="img">
                             <img src="https://i.ibb.co/SfdqWdP/ult1.jpg" alt="ult1"/>
                         </div>
@@ -208,7 +204,7 @@
                     
                 </div>
                 <div class="maisvend">
-                    <a href="produtos/ssd.html">
+                    <a href="paginas/produto.jsp?id=1&categoria=ssd">
                         <div class="img">
                             <img src="https://i.ibb.co/cwpNhRW/ult2.jpg" alt="ult2"/>
                         </div>
@@ -218,9 +214,9 @@
                     </a>
                 </div>
                 <div class="maisvend">
-                    <a href="produtos/hd.html">
+                    <a href="paginas/produto.jsp?id=1&categoria=hdd">
                         <div class="img">
-                            <img src="https://i.ibb.co/2Z1Rpfr/hd.jpg" alt="hd"/>
+                            <img src="https://i.ibb.co/qdddCmZ/ult3.jpg" alt="ult3"/>
                         </div>
                         <div class="text">
                             <p class="txtDest"> HD Seagate BarraCuda, 1TB </p>
