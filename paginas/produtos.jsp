@@ -8,6 +8,8 @@
     <link rel="icon" href="../icons/logo.png">
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/produtos.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+   <link rel="stylesheet" href="../styles/footer.css">
 </head>
 <body>
         
@@ -47,6 +49,12 @@
         <div class="maisvend"> <img src="https://i.ibb.co/yn45cy3/placav1.jpg" alt="placav1" border="0"> <a href="../paginas/produto.jsp?id=2&categoria=pv"> <p class="txt"> Placa de Vídeo GTX 1080 </p> </a> </div>
 
     </article>
+    
+    
+    <footer>
+        <script src="../scripts/footerGenerate.js"></script>
+     </footer> 
+    
       <script src="../scripts/headerGenerate.js"> </script>
 </body>
 </html>

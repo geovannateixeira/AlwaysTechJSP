@@ -7,6 +7,8 @@
     <link rel="icon" href="../icons/logo.png">
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/esqueci.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+   <link rel="stylesheet" href="../styles/footer.css">
     </head>
     <body>
         <header>
@@ -45,7 +47,11 @@
         <a href="../paginas/login.jsp"> <input type="button" name="button2" value="Voltar" />       </a> 
        
         </section>
-            
-        <script src="../scripts/cadastro.js"> </script>
+       
+     <footer>
+        <script src="../scripts/footerGenerate.js"></script>
+     </footer> 
+     
+            <script src="../scripts/cadastro.js"> </script>
     </body>
 </html>

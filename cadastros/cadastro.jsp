@@ -5,7 +5,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <!--Pesquisa do CEP-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/cadastro.css">
+    <link rel="stylesheet" href="../styles/cadastro.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+   <link rel="stylesheet" href="../styles/footer.css">
     <title>Cadastro</title>
      <link rel="icon" href="../icons/logo.png">
 
@@ -169,7 +171,9 @@
         </section>
             
     </main>
-
+    <footer>
+        <script src="../scripts/footerGenerate.js"></script>
+     </footer> 
       <script src="../scripts/cadastro.js"> </script>
 
 </body>

@@ -9,6 +9,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="../styles/lista.css" type="text/css" />
         <link rel="stylesheet" href="../styles/header.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="../styles/footer.css">
         <title>Dados</title>
          <link rel="icon" href="../icons/logo.png">
     </head>
@@ -80,6 +82,8 @@
 
         <br/><br/>
          <a href="../paginas/funcionario.jsp"> <input type="submit" value="Voltar"> </a> 
-        
+            <footer>
+        <script src="../scripts/footerGenerate.js"></script>
+     </footer> 
     </body>
 </html>

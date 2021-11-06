@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="../styles/comprec.css">
     <link rel="stylesheet" href="../styles/cupom.css">
     <link rel="stylesheet" href="../styles/analise.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+   <link rel="stylesheet" href="../styles/footer.css">
+
   
 </head>
 <body>
@@ -356,7 +359,7 @@
                         <div class="status1">
                             <h1 class="stt"> Cupom de 10% </h1>
                         </div>
-                        <div class="desc">
+                        <div class="desc11">
                             <%
                             try{
                                 sql = "SELECT cod_cupom, data_val FROM cupom WHERE cod_cupom = 15796841";
@@ -366,7 +369,7 @@
                              while (rs.next()) {
                             %>
                         
-                            <h1 class="desc1"> Código do Cupom: <%=rs.getString(1)%> <br> Data de Validade: <%=rs.getDate(2)%>  </h1>
+                            <h1 class="desc111"> Código do Cupom: <%=rs.getString(1)%> <br> Data de Validade: <%=rs.getDate(2)%>  </h1>
                         
                            <%
                                }
@@ -387,9 +390,12 @@
             </div>
                            
         </section>
-    </main>
+   </main>
     
-  
+     <footer>
+        <script src="../scripts/footerGenerate.js"></script>
+     </footer> 
+   
 <script src="../scripts/perfilUser.js"></script>
 <script src="../scripts/lista.js"></script>
   <script src="../scripts/headerGenerate.js"> </script>
